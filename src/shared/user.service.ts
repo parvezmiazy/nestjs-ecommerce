@@ -3,7 +3,7 @@ import { RegisterDTO, LoginDTO } from './../auth/auth.dto';
 import { HttpException, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { User } from 'src/types/user';
+import { User } from '../types/user';
 import * as brcypt from 'bcrypt';
 
 @Injectable()

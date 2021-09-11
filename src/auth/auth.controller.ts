@@ -1,5 +1,6 @@
 import { RegisterDTO, LoginDTO } from './auth.dto';
-import { UserService } from './../shared/user.service';
+import { UserService } from '../shared/user.service';
+import { Payload } from '../types/payload';
 import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthGuard } from '@nestjs/passport';
@@ -20,7 +21,7 @@ export class AuthController {
   @Post('login')
   async login(@Body() userDto: LoginDTO) {
     const user = await this.userService.findByLogin(userDto);
-    const payload = {
+    const payload: Payload = {
       username: user.username,
       seller: user.seller,
     };
@@ -32,7 +33,7 @@ export class AuthController {
   async register(@Body() userDto: RegisterDTO) {
     const user = await this.userService.create(userDto);
 
-    const payload = {
+    const payload: Payload = {
       username: user.username,
       seller: user.seller,
     };
