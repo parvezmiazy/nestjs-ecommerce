@@ -1,5 +1,4 @@
 const axios = require('axios');
-const { async } = require('rxjs');
 
 (async () => {
   const {
@@ -10,8 +9,8 @@ const { async } = require('rxjs');
   });
 
   try {
-    const data = await axios.get('http://localhost:3000/auth', {
-      headers: { Authorization: `Bearer ${token}` },
+    const { data } = await axios.get('http://localhost:3000/auth', {
+      headers: { authorization: `Bearer ${token}` },
     });
 
     console.log(data);
